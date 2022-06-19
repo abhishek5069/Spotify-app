@@ -21,7 +21,7 @@ function Footer() {
 				/>
 				<div className="footer_songInfo">
 					<h4>yeah</h4>
-					<p>usher</p>
+					<p>user</p>
 				</div>
 			</div>
 			<div className="footer_center">

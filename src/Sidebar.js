@@ -27,10 +27,7 @@ function Sidebar() {
 				<SidebarOptions title={playlist.name} />
 			))}
 
-			{/* // <SidebarOptions title='Hip Hop'/>
-			// <SidebarOptions title='Rock'/>
-			// <SidebarOptions title='Romantic'/>
-			// <SidebarOptions title='Slowed'/> */}
+			
 		</div>
 	);
 }

@@ -1,12 +1,36 @@
 import React from "react";
 import "./Body.css";
-
-function Body() {
-  return (
-      <div className="body">
-          <h1> I am the body</h1>
+import { useDataLayerValue } from "./DataLayer";
+import Header from "./Header";
+import PlayCircleFilledIcon from '@mui/icons-material/PlayCircleFilled';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
+import SongRow from "./SongRow";
+function Body({ spotify }) {
+  const [{discover_weekly},dispatch]=useDataLayerValue();
+  // console.log(discover_weekly); 
+	return (
+		<div className="body">
+			<Header spotify={spotify} />
+			<div className="body_info">
+				<div className="body_infoText">
+          <strong>PLAYLIST</strong>
+          <h2>Discover Weekly</h2>
+          <p>{discover_weekly?.description}</p>
+        </div>
+			</div>
+      <div className="body_songs">
+        <div className="body_icons">
+          <PlayCircleFilledIcon className="body_shuffle" fontSize="xlarge"/>
+          <FavoriteIcon fontSize="medium" />
+          <MoreHorizIcon />
+        </div>
+        {discover_weekly?.tracks.items.map(i=>(
+            <SongRow track={i.track} />
+        ))}
       </div>
-  )
+		</div>
+	);
 }
 
 export default Body;
